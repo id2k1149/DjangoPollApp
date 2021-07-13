@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home page
+{% endblock %}
+
+{% block content %}
+<h1 class="mt-4">New poll</h1>
+{% for item in restaurants %}
+    <p>
+        <a href="{% url 'polls:menu' filter_id=item.id %}">
+        {{ item.name }} {{ item.id }}
+        </a>
+    </p>
+    <p>
+        {% for each in menu %}
+        {{ each.dish_id }}
+        {% endfor %}
+    </p>
+{% endfor %}
+{% endblock %}
+
